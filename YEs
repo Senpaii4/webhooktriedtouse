@@ -1,0 +1,28 @@
+local OSTime = os.time();
+local Time = os.date('!*t', OSTime);
+local Avatar = 'https://cdn.discordapp.com/embed/avatars/7.png';
+local Content = '-- A PLAYER HAS TRIED TO EXECUTE YOUR SCRIPT --';
+local Embed = {
+   title = 'Laby Lua - Message';
+   color = '01324';
+   footer = { text = game.JobId };
+   author = {
+       name = 'ROBLOX';
+       url = 'https://www.roblox.com/';
+   };
+   fields = {
+       {
+           name = game.Players.LocalPlayer.DisplayName..' Has tried to execute your script but failed';
+           value = game.Players.LocalPlayer.UserId..' - Player ID';
+       }
+   };
+   timestamp = string.format('%d-%d-%dT%02d:%02d:%02dZ', Time.year, Time.month, Time.day, Time.hour, Time.min, Time.sec);
+};
+(syn and syn.request or http_request) {
+   Url = 'https://discord.com/api/webhooks/1044701941864857602/6lQSYfI9CzUb5RoFsGpngsSBnXhku28cTd-VML1Pkb0TfvwGoLKUauVnFLWi4r9kYKy3';
+   Method = 'POST';
+   Headers = {
+       ['Content-Type'] = 'application/json';
+   };
+   Body = game:GetService'HttpService':JSONEncode( { content = Content; embeds = { Embed } } );
+};
