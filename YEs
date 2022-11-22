@@ -12,7 +12,7 @@ local Embed = {
    };
    fields = {
        {
-           name = game.Players.LocalPlayer.DisplayName..' Has tried to execute your script but failed';
+           name = game.Players.LocalPlayer.DisplayName..' Has Tried to execute your Script';
            value = game.Players.LocalPlayer.UserId..' - Player ID';
        }
    };
