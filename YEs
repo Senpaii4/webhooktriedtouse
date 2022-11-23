@@ -2,6 +2,7 @@ local OSTime = os.time();
 local Time = os.date('!*t', OSTime);
 local Avatar = 'https://cdn.discordapp.com/embed/avatars/7.png';
 local Content = '-- A PLAYER HAS TRIED TO EXECUTE YOUR SCRIPT --';
+local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 local Embed = {
    title = 'Laby Lua - Message';
    color = '01324';
@@ -12,8 +13,9 @@ local Embed = {
    };
    fields = {
        {
-           name = game.Players.LocalPlayer.DisplayName..' Has Tried to execute your Script';
-           value = game.Players.LocalPlayer.UserId..' - Player ID';
+           name = game.Players.LocalPlayer.Name..' Has Tried to execute your Script';
+           value = HWID..' - His HWID ' .. game.Players.LocalPlayer.UserId.. " - His ID"
+
        }
    };
    timestamp = string.format('%d-%d-%dT%02d:%02d:%02dZ', Time.year, Time.month, Time.day, Time.hour, Time.min, Time.sec);
