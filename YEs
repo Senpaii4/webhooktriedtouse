@@ -3,6 +3,7 @@ local Time = os.date('!*t', OSTime);
 local Avatar = 'https://cdn.discordapp.com/embed/avatars/7.png';
 local Content = '-- A PLAYER HAS TRIED TO EXECUTE YOUR SCRIPT --';
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
+local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 local Embed = {
    title = 'Laby Lua - Message';
    color = '01324';
@@ -14,7 +15,7 @@ local Embed = {
    fields = {
        {
            name = game.Players.LocalPlayer.Name..' Has Tried to execute your Script';
-           value = HWID..' - His HWID ' .. game.Players.LocalPlayer.UserId.. " - His ID"
+           value = " | Users HWID - "..HWID.. " | Players User ID - " ..game.Players.LocalPlayer.UserId.. " | Game Name: " ..GameName
 
        }
    };
